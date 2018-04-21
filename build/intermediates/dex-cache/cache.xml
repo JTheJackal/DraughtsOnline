@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\classes-c21458086bcde73d962448a2657fa32df701e57c.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-7b13cb0991e0635c1f9fe8dd240c7bf3e938d93e.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.2.2\285cb9c666f0f0f3dd8a1be04e1f457eb7b15113\jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.2-943c67d93883c4b3d63e997f78dcd8f1e810dfba.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-jvm\2.5.2\91731b8f5868a3e8a8a773f29b8d06b5c358f5bb\firebase-client-jvm-2.5.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\firebase-client-jvm-2.5.2-1ae0fc319e4b8d64902cd34189fb7be7aa282b66.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.12\6ec0bbd3e161a73ed672284b587fd32309a86d7a\tubesock-0.0.12.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\tubesock-0.0.12-bcb963bc30ec8a491f91b2c7a77fdf5d1690c3ad.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-c4d350662694099a81a5d70dea1653a157644ed4.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\classes-99fcb367d5382ab526d62c2c83676fd267cfe6f3.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.5.2\f19f10d6276aa0b380e2d05d2ab3272d693a5433\firebase-client-android-2.5.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\firebase-client-android-2.5.2-0cca6cf7186980248e30594f313c2882ad84b943.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.2-df89ae6fbe37f704b551c73c7c5450158df7aa7e.jar" />
+    </item>
+    <item
+        jar="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="C:\Users\User\Desktop\DraughtsOnline\MyApplication\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.2-2e11e9e6abbbfd88a45808e1bf576585d144384e.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context="com.example.b00189991.draughtsonline.resultsScreen">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="YOU WIN/LOSE"
+            android:id="@+id/textView5"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:textSize="36dp" />
+
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/retryBTN"
+            android:layout_below="@+id/textView5"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="69dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:background="@drawable/rematchbtn" />
+
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/newBTN"
+            android:layout_alignTop="@+id/retryBTN"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:background="@drawable/findbtn" />
+
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/menuBTN"
+            android:layout_below="@+id/retryBTN"
+            android:layout_alignLeft="@+id/retryBTN"
+            android:layout_alignStart="@+id/retryBTN"
+            android:layout_marginTop="65dp"
+            android:clickable="true"
+            android:background="@drawable/menubtn" />
+
+        <ImageButton
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/quitBTN"
+            android:layout_alignTop="@+id/menuBTN"
+            android:layout_alignLeft="@+id/newBTN"
+            android:layout_alignStart="@+id/newBTN"
+            android:clickable="true"
+            android:background="@drawable/quitbtn" />
+    </RelativeLayout>
+</LinearLayout>
