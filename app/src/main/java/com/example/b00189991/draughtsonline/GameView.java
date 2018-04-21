@@ -65,6 +65,8 @@ public class GameView extends SurfaceView implements Runnable {
     private Sprite[] enemyPieces = new Sprite[12];
     private int piecePointer = 99;
     private int lostPointer = 99;
+    private int takenCounter = 1;
+    private int stolenCounter = 1;
 
     /*
     private List<Integer> prevMovesX = new ArrayList<Integer>();
@@ -138,18 +140,18 @@ public class GameView extends SurfaceView implements Runnable {
         piecesLostTemp = BitmapFactory.decodeResource(getResources(), R.drawable.pieceslostbg);
         serverMSGBGTemp = BitmapFactory.decodeResource(getResources(), R.drawable.msgbg);
         quitBTNTemp = BitmapFactory.decodeResource(getResources(), R.drawable.quitgamebtn);
-        infoBarTemp = BitmapFactory.decodeResource(getResources(), R.drawable.infobarbg);
+        //infoBarTemp = BitmapFactory.decodeResource(getResources(), R.drawable.infobarbg);
 
         width = getContext().getResources().getDisplayMetrics().widthPixels;
         System.out.println("width of screen: " + width);
-        serverMSGBG = Bitmap.createScaledBitmap(serverMSGBGTemp, (int)width, serverMSGBGTemp.getHeight() - 100, true);
-        quitBTN = Bitmap.createScaledBitmap(quitBTNTemp, quitBTNTemp.getWidth() - 130, quitBTNTemp.getHeight()- 100, true);
-        infoBar = Bitmap.createScaledBitmap(infoBarTemp, (int)width, infoBarTemp.getHeight() - 70, true);
+        serverMSGBG = Bitmap.createScaledBitmap(serverMSGBGTemp, (int)width, serverMSGBGTemp.getHeight()/3, true);
+        quitBTN = Bitmap.createScaledBitmap(quitBTNTemp, quitBTNTemp.getWidth() - 130, quitBTNTemp.getHeight()/3, true);
+        //infoBar = Bitmap.createScaledBitmap(infoBarTemp, (int)width, infoBarTemp.getHeight()/2, true);
 
-        piecesLost = new Sprite(piecesLostTemp, 0, 0 + serverMSGBG.getHeight() + infoBar.getHeight(), width, null);
-        gameBoard = new Sprite(board, 0, (0 + serverMSGBG.getHeight() + infoBar.getHeight() + piecesLost.getHeight()), width, width);
-        piecesTaken = new Sprite(piecesTakenTemp, 0, 0 + serverMSGBG.getHeight() + infoBar.getHeight() + piecesLost.getHeight() + width, width, null);
-        quit = new Sprite(quitBTN, (int)width - quitBTN.getWidth(), 0, null, null);
+        piecesLost = new Sprite(piecesLostTemp, 0, 0 + serverMSGBG.getHeight() /*+ infoBar.getHeight()*/, width, null);
+        gameBoard = new Sprite(board, 0, (0 + serverMSGBG.getHeight() /*+ infoBar.getHeight()*/ + piecesLost.getHeight()), width, width);
+        piecesTaken = new Sprite(piecesTakenTemp, 0, 0 + serverMSGBG.getHeight() /*+ infoBar.getHeight()*/ + piecesLost.getHeight() + width, width, null);
+        quit = new Sprite(quitBTN, (int)width - quitBTN.getWidth(), 0, null, quitBTNTemp.getHeight()/3);
 
         tempWhite = BitmapFactory.decodeResource(getResources(), R.drawable.piecewhite);
         tempRed = BitmapFactory.decodeResource(getResources(), R.drawable.piecered);
@@ -202,9 +204,9 @@ public class GameView extends SurfaceView implements Runnable {
         }
 
         //Set up the paint variable for drawing text on screen.
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.rgb(180, 180, 180));
         paint.setStyle(Paint.Style.FILL);
-        paint.setTextSize(30);
+        paint.setTextSize(24);
 
         //Initialise Firebase.
         System.out.println("initialising Firebase");
@@ -353,9 +355,12 @@ public class GameView extends SurfaceView implements Runnable {
                             prevMoveY = Integer.parseInt(child.getValue().toString());
                         }
 
-                        if(child.getKey().equals("Stolen") && correctNode){
 
+                        if(child.getKey().equals("Stolen") && correctNode && playerTurn){
+
+                            //If it's the player turn, find which piece was lost.
                             lostPointer = Integer.parseInt(child.getValue().toString());
+                            System.out.println("Marking 'lostPointer' as: " + lostPointer);
                         }
                     }
                 }
@@ -491,7 +496,7 @@ public class GameView extends SurfaceView implements Runnable {
         update();
 
         canvas.drawBitmap(serverMSGBG, 0, 0, null);
-        canvas.drawBitmap(infoBar, 0, 0 + serverMSGBG.getHeight(), null);
+        //canvas.drawBitmap(infoBar, 0, 0 + serverMSGBG.getHeight(), null);
         quit.onDraw(canvas);
         piecesLost.onDraw(canvas);
         gameBoard.onDraw(canvas);
@@ -502,8 +507,8 @@ public class GameView extends SurfaceView implements Runnable {
             redPieces[i].onDraw(canvas);
         }
 
-        canvas.drawText("Opponent: " + opponentName, 10, serverMSGBGTemp.getHeight() + 5, paint);
-        canvas.drawText("Turn: " + playerTurn, canvas.getWidth()/2, serverMSGBGTemp.getHeight() + 5, paint);
+        canvas.drawText("Opponent:\n " + opponentName, 10, 0 + 25, paint);
+        canvas.drawText("Turn:\n " + playerTurn, 10, 0 + 55, paint);
     }
 
     @Override
@@ -1538,7 +1543,7 @@ public class GameView extends SurfaceView implements Runnable {
                 enemyPieces[i].moveY((float)gameBoard.getY() + (tileWidth * newMoveY));
             }else{
 
-                System.out.println("Opponent hasn't moved.");
+                //System.out.println("Opponent hasn't moved.");
             }
 
         }
@@ -1548,6 +1553,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         int counter = 0;
 
+        //Lose the player piece if it was jumped by the opponent
         if(lostPointer != 99) {
             for (int i = 0; i < 12; i++) {
 
@@ -1558,21 +1564,32 @@ public class GameView extends SurfaceView implements Runnable {
             }
         }
 
+        //Reset the pointer for the ID of the piece lost. It will never be 99.
         lostPointer = 99;
 
         for(int i = 0; i < 12; i++){
 
-            if(!playerPieces[i].isActive()){
+            if(!playerPieces[i].isActive() && !playerPieces[i].isOut()){
 
+                stolenCounter++;
                 //Piece has been jumped. Resize and display on taken board.
-                playerPieces[i].moveX((float)counter * 50);
-                playerPieces[i].moveY((float)gameBoard.getY() - tileWidth);
+                playerPieces[i].setSize(playerPieces[i].getWidth()/2, playerPieces[i].getHeight()/2);
+                //playerPieces[i].moveX((float)counter * 50);
+                playerPieces[i].moveX((float)0 + stolenCounter * (playerPieces[i].getWidth() + 5));
+                //playerPieces[i].moveY((float)gameBoard.getY() - tileWidth);
+                playerPieces[i].moveY((float)gameBoard.getY() - (playerPieces[i].getHeight()/2) - 20);
+                playerPieces[i].setIsOut(true);
             }
 
-            if(!enemyPieces[i].isActive()){
+            if(!enemyPieces[i].isActive() && !enemyPieces[i].isOut()){
 
-                enemyPieces[i].moveX((float)counter * 50);
-                enemyPieces[i].moveY((float)gameBoard.getY() + gameBoard.getHeight() + 5);
+                takenCounter++;
+                enemyPieces[i].setSize(enemyPieces[i].getWidth()/2, enemyPieces[i].getHeight()/2);
+                //enemyPieces[i].moveX((float)counter * 50);
+                //enemyPieces[i].moveY((float)gameBoard.getY() + gameBoard.getHeight() + 5);
+                enemyPieces[i].moveX((float)0 + takenCounter * (enemyPieces[i].getWidth() + 5));
+                enemyPieces[i].moveY((float)gameBoard.getY() + gameBoard.getHeight() + (enemyPieces[i].getHeight() + 5));
+                enemyPieces[i].setIsOut(true);
             }
         }
 

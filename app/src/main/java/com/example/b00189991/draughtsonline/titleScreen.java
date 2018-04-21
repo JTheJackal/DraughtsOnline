@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,8 +21,8 @@ import org.w3c.dom.Text;
 public class titleScreen extends Activity implements View.OnClickListener{
 
     ImageButton findBTN;
-    ImageButton resetBTN;
-    ImageButton quitBTN;
+    Button resetBTN;
+    Button quitBTN;
     EditText nameTXT;
     TextView winsText;
     TextView lossText;
@@ -42,8 +43,8 @@ public class titleScreen extends Activity implements View.OnClickListener{
 
         //Attach the elements to variables.
         findBTN = (ImageButton)findViewById(R.id.findBTN);
-        resetBTN = (ImageButton)findViewById(R.id.resetBTN);
-        quitBTN = (ImageButton)findViewById(R.id.quitBTN);
+        resetBTN = (Button)findViewById(R.id.resetBTN);
+        quitBTN = (Button)findViewById(R.id.quitBTN);
         nameTXT = (EditText)findViewById(R.id.nameTXT);
 
         winsText = (TextView)findViewById(R.id.winsTXT);

@@ -6,61 +6,62 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="#ddf3fa">
 
         <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="YOU WIN/LOSE"
-            android:id="@+id/textView5"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="46dp"
+            android:text="YOU WIN/LOSE"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="36dp" />
 
         <ImageButton
+            android:id="@+id/retryBTN"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/retryBTN"
-            android:layout_below="@+id/textView5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="69dp"
+            android:layout_below="@+id/textView5"
             android:layout_marginLeft="10dp"
-            android:clickable="true"
-            android:background="@drawable/rematchbtn" />
+            android:layout_marginTop="69dp"
+            android:background="@drawable/rematchbtn"
+            android:clickable="true" />
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/newBTN"
-            android:layout_alignTop="@+id/retryBTN"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp"
-            android:clickable="true"
-            android:background="@drawable/findbtn" />
-
-        <ImageButton
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/retryBTN"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/findbtn"
+            android:clickable="true" />
+
+        <ImageButton
             android:id="@+id/menuBTN"
-            android:layout_below="@+id/retryBTN"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_alignLeft="@+id/retryBTN"
             android:layout_alignStart="@+id/retryBTN"
+            android:layout_below="@+id/retryBTN"
             android:layout_marginTop="65dp"
-            android:clickable="true"
-            android:background="@drawable/menubtn" />
+            android:background="@drawable/menubtn"
+            android:clickable="true" />
 
         <ImageButton
+            android:id="@+id/quitBTN"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/quitBTN"
-            android:layout_alignTop="@+id/menuBTN"
             android:layout_alignLeft="@+id/newBTN"
             android:layout_alignStart="@+id/newBTN"
-            android:clickable="true"
-            android:background="@drawable/quitbtn" />
+            android:layout_alignTop="@+id/menuBTN"
+            android:background="@drawable/quitbtn"
+            android:clickable="true" />
     </RelativeLayout>
 </LinearLayout>

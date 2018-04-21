@@ -18,6 +18,7 @@ public class Sprite {
     private boolean isTouched = false;
     private boolean isKing = false;
     private boolean isRed = false;
+    private boolean isOut = false;
 
     public Sprite(Bitmap bmp, int x, int y, Integer width, Integer height){
 
@@ -148,5 +149,21 @@ public class Sprite {
     public void makeActive(){
 
         this.isActive = true;
+    }
+
+    public void setSize(int width, int height){
+
+        this.scaledBMP = Bitmap.createScaledBitmap(this.bmp, width, height, true);
+
+    }
+
+    public void setIsOut(boolean setOut){
+
+        this.isOut = setOut;
+    }
+
+    public boolean isOut(){
+
+        return this.isOut;
     }
 }
